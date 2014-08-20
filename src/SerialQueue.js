@@ -16,7 +16,7 @@
     var Q = function(worker)
     {
         this._running = false;
-        this._worker  = worker || this._defaultWorker;
+        this._worker  = worker;
         this._q = [];
     };
 
@@ -36,14 +36,9 @@
             var workerDone = function()
             {
                 if(self._q.length)
-                {
                     self._worker(self._q.shift(), workerDone);
-                }
                 else
-                {
-                    self._running = false;
                     done();
-                }
             }
 
             workerDone();
