@@ -23,25 +23,30 @@
     Q.prototype = {
         constructor: Q,
 
-        push: function(item)
+        push: function(item, worker)
         {
-            this._q.push(item);
+            this._q.push({item: item, worker: worker});
             this._run();
         },
 
         _runNext: function(done)
         {
             var self = this;
-
-            var workerDone = function()
+            var next = function()
             {
                 if(self._q.length)
-                    self._worker(self._q.shift(), workerDone);
+                {
+                    var task = self._q.shift();
+                    (task.worker || self._worker)(task.item, next);
+                }
                 else
+                {
                     done();
+                }
+
             }
 
-            workerDone();
+            next();
         },
 
         _run: function()
@@ -59,5 +64,4 @@
     };
 
     return Q;
- 
 });
