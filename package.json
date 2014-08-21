@@ -1,0 +1,32 @@
+{
+  "name": "serialqueue.js",
+  "title": "SerialQueue.js",
+  "description": "Queue that executes jobs asynchronously, but serially.",
+  "version": "0.1.0",
+  "main": "dist/SerialQueue.js",
+  "homepage": "http://jns.io",
+  "author": {
+    "name": "Jan N. Schulze",
+    "url": "http://jns.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nischu7/SerialQueue.js.git"
+  },
+  "keywords": [
+    "javascript",
+    "queue",
+    "serial",
+    "async",
+    "library"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "0.4.5",
+    "grunt-cli": "0.1.13",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-uglify": "~0.5.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-clean": "~0.5.0"
+  }
+}
